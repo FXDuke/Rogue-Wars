@@ -4,22 +4,24 @@ Rogue Wars is an WIP game by an independant developer (me). I love roguelike gam
 
 Current Status:
 
-Physics Framework |   Done (Requires Polishing)
+Physics Framework |   Done (Requires Polishing),
+
 Collisions        |   Done (Volume Collisions Still Required)
 
 Roadmap: (More things to be added)
 
 Gameplay:
-Weight / Stopping Power Physics
+Weight / Stopping Power Physics,
 Enemy AI
 
 User Interface:
-Health
-Taskbar
-Command Bar 
-Options 
+Health,
+Taskbar,
+Command Bar,
+Options
 
 Graphics:
-Animations        |   Work and Progress (See assets)
+Animations        |   Work and Progress (See assets),
+
 Pixel Art         |   Work and Progress (See assets)
 
