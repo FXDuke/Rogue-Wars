@@ -21,7 +21,5 @@ Command Bar,
 Options
 
 Graphics:
-Animations        |   Work and Progress (See assets),
-
-Pixel Art         |   Work and Progress (See assets)
+Animations        |   Work and Progress (See assets), Pixel Art         |   Work and Progress (See assets)
 
