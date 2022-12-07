@@ -39,10 +39,29 @@ Coroutine = {
         PriorityLevel = PriorityLevel or 1 
         Coroutine.PriorityQueue[PriorityLevel] = {}
     end,
-    BeginLoop = function()
+    Wait = {
+        WaitTime = 0,
+        Waiting = {},
+        Wait_Loop = function() 
+            local WaitTable = Coroutine.Wait
+            for _,FuncTable in pairs(WaitTable.Waiting) do 
+                if WaitTable.WaitTime>=FuncTable.Start_Time+FuncTable.Wait_Time then 
+                    FuncTable.F()
+                    table.remove(WaitTable.Waiting,_)
+                end
+            end
+        end, 
+        Add_Wait = function(Time,Func) 
+            local WaitTable = Coroutine.Wait
+            table.insert(WaitTable.Waiting,{F=Func,Start_Time=WaitTable.WaitTime,Wait_Time=Time})
+        end,
+    },
+    BeginLoop = function(dt)
+        Coroutine.Wait.WaitTime = Coroutine.Wait.WaitTime + dt
+        Coroutine.Wait.Wait_Loop()
         for Priority,Coroutines in pairs(Coroutine.PriorityQueue) do 
             for _,CoroutineObject in pairs(Coroutines) do 
-                coroutine.resume(CoroutineObject.CoroutineFunction)
+                coroutine.resume(CoroutineObject.CoroutineFunction,dt)
                 if coroutine.status(CoroutineObject.CoroutineFunction) == "dead" then 
                     table.remove(Coroutines,_)
                 end
